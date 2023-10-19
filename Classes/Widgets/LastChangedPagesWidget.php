@@ -7,6 +7,7 @@ use TYPO3\CMS\Backend\Routing\PreviewUriBuilder;
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\HiddenRestriction;
+use TYPO3\CMS\Core\Localization\LanguageServiceFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\RootlineUtility;
 use TYPO3\CMS\Dashboard\Widgets\WidgetConfigurationInterface;
@@ -78,7 +79,15 @@ class LastChangedPagesWidget implements WidgetInterface
     {
         $history = GeneralUtility::makeInstance(RecordHistory::class, 'pages:' . $pageUid);
         $history->setMaxSteps(1);
-        $latestChange = array_shift($history->getChangeLog());
-        return $this->userNames[$latestChange['userid']]['username'] ?? '';
+        $changelog = $history->getChangeLog();
+        $languageService = GeneralUtility::makeInstance(LanguageServiceFactory::class)
+            ->createFromUserPreferences($GLOBALS['BE_USER']);
+        $noHistoryString = $languageService->sL('LLL:EXT:widget_mirror/Resources/Private/Language/backend.xlf:widgets.lastchangedpages.noHistory');
+        if (empty($changelog)) {
+            return $noHistoryString;
+        } else {
+            $latestChange = array_shift($changelog);
+            return $this->userNames[$latestChange['userid']]['username'] ?? $noHistoryString;
+        }
     }
 }

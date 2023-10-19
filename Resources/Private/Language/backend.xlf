@@ -53,6 +53,9 @@
 			<trans-unit id="widgets.lastchangedpages.recordHistory">
 				<source>Show history</source>
 			</trans-unit>
+			<trans-unit id="widgets.lastchangedpages.noHistory">
+				<source>-- No history available --</source>
+			</trans-unit>
 			<trans-unit id="widgets.lastchangedpages.editPageContent">
 				<source>Edit page content</source>
 			</trans-unit>
