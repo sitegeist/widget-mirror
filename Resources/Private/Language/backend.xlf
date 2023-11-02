@@ -50,8 +50,26 @@
 			<trans-unit id="widgets.lastchangedpages.recordHistory">
 				<source>Show history</source>
 			</trans-unit>
+			<trans-unit id="widgets.lastchangedpages.noHistory">
+				<source>-- No history available --</source>
+			</trans-unit>
 			<trans-unit id="widgets.lastchangedpages.editPageContent">
 				<source>Edit page content</source>
+			</trans-unit>
+			<trans-unit id="widgets.lastchangedpages.user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="widgets.lastchangedpages.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="widgets.lastchangedpages.type">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="widgets.lastchangedpages.page">
+				<source>Page</source>
+			</trans-unit>
+			<trans-unit id="widgets.lastchangedpages.options">
+				<source>Options</source>
 			</trans-unit>
 			<trans-unit id="widgets.lastchangedpages.pagetree">
 				<source>Position in pagetree</source>

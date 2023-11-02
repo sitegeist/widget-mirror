@@ -7,6 +7,22 @@
 <f:section name="main">
     <div class="widget-table-wrapper">
         <table class="widget-table">
+						<thead>
+								<tr>
+										<th>
+												{f:translate(key: 'LLL:EXT:widget_mirror/Resources/Private/Language/backend.xlf:widgets.lastchangedpages.type')}
+										</th>
+										<th>
+												{f:translate(key: 'LLL:EXT:widget_mirror/Resources/Private/Language/backend.xlf:widgets.lastchangedpages.page')}
+										</th>
+										<th>
+												{f:translate(key: 'LLL:EXT:widget_mirror/Resources/Private/Language/backend.xlf:widgets.lastchangedpages.options')}
+										</th>
+										<th>
+											{f:translate(key: 'LLL:EXT:widget_mirror/Resources/Private/Language/backend.xlf:widgets.lastchangedpages.date')} & {f:translate(key: 'LLL:EXT:widget_mirror/Resources/Private/Language/backend.xlf:widgets.lastchangedpages.user')}
+										</th>
+								</tr>
+						</thead>
             <f:for each="{pages}" as="page">
                 <tr>
                     <td>
@@ -64,7 +80,7 @@
                     </td>
                     <td>
                         <span style="white-space: nowrap;">{page.tstamp -> f:format.date(format: dateFormat)}</span><br />
-                        {page.userName}
+												{f:translate(key: 'LLL:EXT:widget_mirror/Resources/Private/Language/backend.xlf:widgets.lastchangedpages.user')}: {page.userName}
                     </td>
                 </tr>
             </f:for>
